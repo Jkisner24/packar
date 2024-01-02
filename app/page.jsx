@@ -1,6 +1,8 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 
 export default function Home() {
-  return <h1>TITLE</h1>;
+  return (
+   <>
+    <p>Main Page</p>
+   </>
+  )
 }

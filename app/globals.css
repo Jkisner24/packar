@@ -1,0 +1,14 @@
+/* globals */
+
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #fe1252;
+  --secondary-color: #fff;
+  --accent-color: #17181c;
+}
