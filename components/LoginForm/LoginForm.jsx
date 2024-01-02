@@ -7,11 +7,6 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="container">
-
-      
-
-
       <form onSubmit={onSubmit} className="row justify-content-center">
         <div className="mb-3 col-12 col-md-6 text-left">
           <label htmlFor="exampleInputEmail1" className="form-label mt-3 px-2">
@@ -48,7 +43,6 @@ const LoginForm = () => {
           </button>
         </div>
       </form>
-    </div>
   );
 };
 
