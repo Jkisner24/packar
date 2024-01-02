@@ -1,1 +1,1 @@
-export * from './LoginForm.jsx'
+export * from './LoginComponent.jsx'

@@ -1,22 +1,55 @@
-import React from 'react'
+"use client";
+import React from "react";
 
 const LoginForm = () => {
-  return (
-    <form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" />
-  </div>
-  <div class="mb-3 form-check">
-    <div id="emailHelp" className="text-primary">¿Has olvidado la contraseña?</div>
-  </div>
-  <button type="submit" class="btn text-light" style={{background: 'var(--primary-color)'}}>Iniciar sesión</button>
-</form>
-  )
-}
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
 
-export default LoginForm
+  return (
+    <div className="container">
+
+      
+
+
+      <form onSubmit={onSubmit} className="row justify-content-center">
+        <div className="mb-3 col-12 col-md-6 text-left">
+          <label htmlFor="exampleInputEmail1" className="form-label mt-3 px-2">
+            Email
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <label htmlFor="exampleInputPassword1" className="form-label mt-3 px-2">
+            Contraseña
+          </label>
+          <input
+            type="password"
+            className="form-control"
+            id="exampleInputPassword1"
+          />
+          <div className="text-primary text-center mt-5">
+            <span style={{ cursor: "pointer" }}>
+              ¿Has olvidado la contraseña?
+            </span>
+          </div>
+        </div>
+
+        <div className="mb-3 col-12 row justify-content-center">
+          <button
+            type="submit"
+            className="btn w-auto mx-auto p-3 text-light mt-3"
+            style={{ background: "var(--primary-color)" }}
+          >
+            Iniciar sesión
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default LoginForm;
