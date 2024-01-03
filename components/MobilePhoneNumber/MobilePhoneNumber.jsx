@@ -1,9 +1,16 @@
+"use client"
 import Image from "next/image"
 import React from "react"
 import { MobilePhoneNumberSvg } from "@/public/assets"
 import SelectPhoneNumber from "./SelectPhoneNumber"
+import { useRouter } from "next/navigation";
 
 const MobilePhoneNumber = () => {
+
+  const router = useRouter()
+  const verificationCode = () => {
+    router.push('/verification-code')
+  }
   return (
     <div className="content w-100 d-flex justify-content-center align-items-center">
       <div className="text-center">
@@ -29,6 +36,7 @@ const MobilePhoneNumber = () => {
               type="button"
               className="btn w-50 mx-auto p-3 text-light mt-3"
               style={{ background: "var(--primary-color)" }}
+              onClick={verificationCode}
             >
               Enviar código
             </button>
