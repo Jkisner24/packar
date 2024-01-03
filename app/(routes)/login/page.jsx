@@ -1,10 +1,10 @@
-import LoginForm from "@/components/LoginForm/LoginForm"
+import LoginComponent from "@/components/LoginRegisterForm/LoginComponent"
 import React from "react"
 
 const page = () => {
   return (
     <>
-      <LoginForm />
+      <LoginComponent />
     </>
   )
 }
