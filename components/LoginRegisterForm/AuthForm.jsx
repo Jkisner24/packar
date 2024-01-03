@@ -1,7 +1,7 @@
-import Image from "next/image";
-import React, {useState} from "react";
-import { LeftArrow, GoogleLogo } from "@/public/assets";
-import { useRouter } from "next/navigation";
+import Image from "next/image"
+import React, {useState} from "react"
+import { LeftArrow, GoogleLogo } from "@/public/assets"
+import { useRouter } from "next/navigation"
 
 const AuthForm = ({
   onSubmit,
@@ -18,7 +18,6 @@ const AuthForm = ({
 
   const router = useRouter()
   const [loginLink, setLoginLink] = useState('/login')
-  const [goBack, setGoBack] = useState(-1)
 
   const handleLoginClick = () => {
     router.push(loginLink)
