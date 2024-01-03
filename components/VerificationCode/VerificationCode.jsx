@@ -33,7 +33,7 @@ const VerificationCode = () => {
         loading={loading}
         onComplete={code => {
           setLoading(true);
-          setTimeout(() => setLoading(false), 10000);
+          setTimeout(() => setLoading(false), 1000);
         }}
       /> 
 
