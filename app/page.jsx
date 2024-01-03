@@ -1,6 +1,10 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
+"use client"
+import Landing from '@/components/Landing/Landing'
+import React from 'react'
 export default function Home() {
-  return <h1>TITLE</h1>;
+  return (
+   <>
+    <Landing />
+   </>
+  )
 }
