@@ -24,7 +24,7 @@ const VerificationCode = () => {
         <span className="mt-3 fs-5 fw-bold">Verificación</span>
       </div>
       <div className="my-5 col-12 col-md-6 text-left align-items-center d-flex flex-column w-100">
-        <p className="fs-4">
+        <p className="fs-4 my-4">
           Por favor, introduce el código de <span className="d-block text-left">verificación que te hemos enviado.</span>
         </p>
       </div> 
@@ -36,8 +36,12 @@ const VerificationCode = () => {
           setTimeout(() => setLoading(false), 10000);
         }}
       /> 
+
+      <div className="text-dark text-center my-5">
+         <p>¿No has recibido el código? <span style={{ cursor: "pointer" }} className="text-primary">Reenviar código</span></p>
+      </div> 
       </>
-  );
-};
+  )
+}
 
 export default VerificationCode;
