@@ -1,8 +1,10 @@
-
+"use client"
+import Landing from '@/components/Landing/Landing'
+import React from 'react'
 export default function Home() {
   return (
    <>
-    <p>Main Page</p>
+    <Landing />
    </>
   )
 }
