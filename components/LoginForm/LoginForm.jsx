@@ -1,49 +1,46 @@
-"use client"
-import React from "react"
+import React from "react";
+import AuthForm from "./AuthForm";
 
-const LoginForm = () => {
-  const onSubmit = (e) => {
-    e.preventDefault()
-  }
+const Login = () => {
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
-    <form onSubmit={onSubmit} className="row justify-content-center">
-      <div className="mb-3 col-12 col-md-6 text-left">
-        <label htmlFor="exampleInputEmail1" className="form-label mt-3 px-2">
-          Email
-        </label>
-        <input
-          type="email"
-          className="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-        />
-        <label htmlFor="exampleInputPassword1" className="form-label mt-3 px-2">
-          Contraseña
-        </label>
-        <input
-          type="password"
-          className="form-control"
-          id="exampleInputPassword1"
-        />
-        <div className="text-primary text-center mt-5">
-          <span style={{ cursor: "pointer" }}>
-            ¿Has olvidado la contraseña?
-          </span>
-        </div>
-      </div>
-
-      <div className="mb-3 col-12 row justify-content-center">
-        <button
-          type="submit"
-          className="btn w-auto mx-auto p-3 text-light mt-3"
-          style={{ background: "var(--primary-color)" }}
-        >
-          Iniciar sesión
-        </button>
-      </div>
-    </form>
+    <AuthForm
+      onSubmit={handleLoginSubmit}
+      h3Title="Iniciar sesión"
+      h2Text="Encuentra tu mejor opción"
+      h2Span="al mejor precio."
+      buttonText="Iniciar sesión"
+      formTitle="Inicio de sesión"
+      question="¿Has olvidado la contraseña?"
+      showNameInput={false}
+      showForgotPassword={true}
+      showLogin={false}
+    />
   );
 };
 
-export default LoginForm;
+const Register = () => {
+  const handleRegisterSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  return (
+    <AuthForm
+      onSubmit={handleRegisterSubmit}
+      h3Title="Crear cuenta"
+      h2Text="Ahorra tiempo y dinero en"
+      h2Span="tus envíos de paquetería."
+      buttonText="Crear cuenta"
+      formTitle="Crear cuenta"
+      question="Inicia sesión"
+      showNameInput={true}
+      showForgotPassword={false}
+      showLogin={true}
+    />
+  );
+};
+
+export { Login, Register };
