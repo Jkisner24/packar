@@ -40,6 +40,18 @@ const VerificationCode = () => {
       <div className="text-dark text-center my-5">
          <p>¿No has recibido el código? <span style={{ cursor: "pointer" }} className="text-primary">Reenviar código</span></p>
       </div> 
+
+
+          <div className="col-12 my-5 d-flex align-items-center">
+            <button
+              type="button"
+              className="btn w-50 mx-auto p-3 text-light mt-3"
+              style={{ background: "var(--primary-color)" }}
+            >
+              Verificar
+            </button>
+          </div>
+
       </>
   )
 }
