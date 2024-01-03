@@ -1,14 +1,14 @@
 "use client"
 import React from 'react'
 
-import { Login, Register } from './LoginForm'
+import { Login } from './LoginRegisterForm'
 
 
 const LoginComponent = () => {
 
   return (
    <div className='container'>
-    <Register />
+    <Login />
    </div>
   )
 }
