@@ -1,6 +1,7 @@
-import Image from "next/image";
-import React from "react";
-import { LeftArrow, GoogleLogo } from "@/public/assets";
+import Image from "next/image"
+import React, {useState} from "react"
+import { LeftArrow, GoogleLogo } from "@/public/assets"
+import { useRouter } from "next/navigation"
 
 const AuthForm = ({
   onSubmit,
@@ -14,10 +15,22 @@ const AuthForm = ({
   showForgotPassword,
   showLogin
 }) => {
+
+  const router = useRouter()
+  const [loginLink, setLoginLink] = useState('/login')
+
+  const handleLoginClick = () => {
+    router.push(loginLink)
+  }
+
+  const goBackArrow = () => {
+    router.back()
+  }
+
   return (
     <>
       <div className="my-3 col-12 col-md-6 text-left d-flex flex-column">
-        <Image src={LeftArrow} alt="left arrow" style={{ cursor: "pointer" }} />
+        <Image src={LeftArrow} onClick={goBackArrow} alt="left arrow" style={{ cursor: "pointer" }} />
         <span className="mt-3 fs-5 fw-bold">{h3Title}</span>
       </div>
       <div className="my-5 col-12 col-md-6 text-left align-items-center d-flex flex-column w-100">
@@ -100,7 +113,7 @@ const AuthForm = ({
 
       {showLogin && 
          <div className="text-dark text-center my-3">
-         <p style={{ cursor: "pointer" }}>¿Ya tienes una cuenta? <span className="text-primary">{question}</span></p>
+         <p style={{ cursor: "pointer" }}>¿Ya tienes una cuenta? <span onClick={handleLoginClick} className="text-primary">{question}</span></p>
       </div> 
       }
     </>
