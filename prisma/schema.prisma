@@ -14,6 +14,7 @@ model User {
   id       Int      @id @default(autoincrement())
   username String
   email    String   @unique
+  password String
   trips    Trip[]   @relation("UserTrips")
 }
 
@@ -22,8 +23,8 @@ model Trip {
   title       String
   description String
   status      String
-  origin      String
-  destination String 
+  origin      String?
+  destination String?
   createdBy   User     @relation("UserTrips", fields: [createdById], references: [id])
   createdById Int
 }
