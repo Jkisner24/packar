@@ -8,7 +8,7 @@ const initialState = {
 export const getUsers = createAsyncThunk('mySlice/getUsers', async () => {
   try {
     const response = await axios.get('http://localhost:3000/api/users')
-    console.log(response.data)
+    console.log(response.data, "SLICE")
     return response.data
   } catch (error) {
     console.error('Error fetching users:', error);
@@ -36,7 +36,7 @@ const mySlice = createSlice({
     builder.addCase(getUsers.pending, (state) => {
     });
     builder.addCase(getUsers.fulfilled, (state, action) => {
-      state.value = action.payload;
+      state.users = action.payload;
     });
     builder.addCase(getUsers.rejected, (state, action) => {
     });

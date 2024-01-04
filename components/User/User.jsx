@@ -9,7 +9,7 @@
     function User() {
       const dispatch = useDispatch()
       const [showModal, setShowModal] = useState(false);
-      const users = useSelector((state) => state.users);
+      const users = useSelector((state) => state.slice.users);
       const handleShowModal = () => setShowModal(true);
       const handleCloseModal = () => setShowModal(false);
       
@@ -18,7 +18,7 @@
         dispatch(getUsers());
       }, [dispatch]);
       console.log(users,"USER")
-      
+      const { id, username, email } = users[0];
 
       return (
         <div>
@@ -38,8 +38,8 @@
                   </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                  <ListGroup.Item></ListGroup.Item>
-                  <ListGroup.Item></ListGroup.Item>
+                  <ListGroup.Item>{username}</ListGroup.Item>
+                  <ListGroup.Item>{email}</ListGroup.Item>
                 </ListGroup>
                 <Card.Body>
                   <Card.Link href="#">Instagram</Card.Link>
