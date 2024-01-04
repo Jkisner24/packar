@@ -1,0 +1,49 @@
+    'use client'
+    import React, { useState } from 'react';
+    import Card from 'react-bootstrap/Card';
+    import ListGroup from 'react-bootstrap/ListGroup';
+    import Modal from 'react-bootstrap/Modal';
+    
+    function User() {
+      const [showModal, setShowModal] = useState(false);
+    
+      const handleShowModal = () => setShowModal(true);
+      const handleCloseModal = () => setShowModal(false);
+    
+      return (
+        <div>
+          <button onClick={handleShowModal}>Perfil del usuario</button>
+    
+          <Modal show={showModal} onHide={handleCloseModal}>
+            <Modal.Header closeButton>
+              <Modal.Title>User Modal</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Card style={{ width: '30rem', height: '30rem' }}>
+                <Card.Img variant="top" src="https://skydatalatam.com/wp-content/uploads/2023/01/4v1.-Jun-Transportista-sus-aportes-al-momento-de-planear-las-rutas-1024x683-1-1024x650.jpg" />
+                <Card.Body>
+                  <Card.Title>Card Title</Card.Title>
+                  <Card.Text>
+                    Transportista de Barcelona
+                  </Card.Text>
+                </Card.Body>
+                <ListGroup className="list-group-flush">
+                  <ListGroup.Item>Juan</ListGroup.Item>
+                  <ListGroup.Item>Juan@juan.com</ListGroup.Item>
+                </ListGroup>
+                <Card.Body>
+                  <Card.Link href="#">Instagram</Card.Link>
+                  <Card.Link href="#">Linkedin</Card.Link>
+                </Card.Body>
+              </Card>
+            </Modal.Body>
+            <Modal.Footer>
+              <button onClick={handleCloseModal}>Cerrar Modal</button>
+            </Modal.Footer>
+          </Modal>
+        </div>
+      );
+    }
+    
+    export default User;
+    
