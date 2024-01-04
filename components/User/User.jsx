@@ -18,7 +18,12 @@
         dispatch(getUsers());
       }, [dispatch]);
       console.log(users,"USER")
-      const { id, username, email } = users[0];
+
+      if (!users || users.length === 0) {
+        return null; 
+      }
+        const { username, email } = users[0];
+      
 
       return (
         <div>
