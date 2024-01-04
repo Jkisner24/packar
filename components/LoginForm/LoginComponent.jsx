@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 
-import { Login } from './LoginRegisterForm'
+import { Login } from './LoginForm'
 
 
 const LoginComponent = () => {
