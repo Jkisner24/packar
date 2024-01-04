@@ -14,7 +14,9 @@ const AuthForm = ({
   showNameInput,
   showForgotPassword,
   showLogin,
-  dispatchFunction
+  dispatchFunction,
+  handleEmailChange,
+  handlePasswordChange
 }) => {
 
   const router = useRouter()
@@ -66,6 +68,7 @@ const AuthForm = ({
             Email
           </label>
           <input
+            onChange={handleEmailChange}
             type="email"
             className="form-control"
             id="exampleInputEmail1"
@@ -78,6 +81,7 @@ const AuthForm = ({
             Contraseña
           </label>
           <input
+            onChange={handlePasswordChange}
             type="password"
             className="form-control"
             id="exampleInputPassword1"

@@ -1,14 +1,30 @@
 "use client"
-import React from "react";
+import React, { useState } from "react";
 import AuthForm from "./AuthForm";
-import { useDispatch } from "react-redux";
-import { getUsers, postUser } from "@/store/slice";
+import { useDispatch, useSelector } from "react-redux";
+import { postUser } from "@/store/slice";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
 
-  const dispatch = useDispatch()
-  const handleLoginSubmit = () => {
-    dispatch(getUsers()) 
+  const users = useSelector((state) => state.slice.users)
+
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+
+  const router = useRouter()
+  console.log("Users:", users)
+  const handleLoginSubmit = async () => {
+    const user = users.find(user => user.email === email)
+    user ? router.push('/mobile-phone') : alert("Usuario inexistente")
+  }
+
+  const handleEmailChange = (e) => {
+   setEmail(e.target.value)
+  }
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value)
   }
 
   return (
@@ -24,6 +40,8 @@ const Login = () => {
       showForgotPassword={true}
       showLogin={false}
       dispatchFunction={handleLoginSubmit}
+      handleEmailChange={handleEmailChange}
+      handlePasswordChange={handlePasswordChange}
     />
   )
 }
