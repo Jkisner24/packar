@@ -13,15 +13,17 @@ export async function GET(req, res) {
 
 export async function POST(req, res) {
     try {
-        const { title, description, status, createdById } = await req.json();
+        const { title, description, status, createdBy, origin, destination } = await req.json();
         const newTrip = await prisma.trip.create({
           data: {
             title,
             description,
             status,
             createdBy: {
-              connect: { id: createdById } 
-            }
+              connect: { id: createdBy.id } 
+            },
+            origin,
+            destination
           }
         });
         return NextResponse.json(newTrip);
