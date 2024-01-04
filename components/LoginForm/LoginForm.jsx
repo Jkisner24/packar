@@ -15,7 +15,7 @@ const Login = () => {
   const router = useRouter()
   console.log("Users:", users)
   const handleLoginSubmit = async () => {
-    const user = users.find(user => user.email === email)
+    const user = users.find(user => user.email === email && user.password === password)
     user ? router.push('/mobile-phone') : alert("Usuario inexistente")
   }
 
