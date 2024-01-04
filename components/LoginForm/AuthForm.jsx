@@ -113,7 +113,7 @@ const AuthForm = ({
 
       {showLogin && 
          <div className="text-dark text-center my-3">
-         <p style={{ cursor: "pointer" }}>¿Ya tienes una cuenta? <span onClick={handleLoginClick} className="text-primary">{question}</span></p>
+         <p>¿Ya tienes una cuenta? <span style={{ cursor: "pointer" }} onClick={handleLoginClick} className="text-primary">{question}</span></p>
       </div> 
       }
     </>
