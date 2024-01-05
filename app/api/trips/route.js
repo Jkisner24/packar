@@ -3,7 +3,12 @@ import { NextResponse } from "next/server";
 
 export async function GET(req, res) {
   try {
-    const trips = await prisma.trip.findMany();
+    const trips = await prisma.trip.findMany({
+      include: {
+        createdBy: true,  
+        takenBy: true,    
+      },
+    });
     return NextResponse.json(trips);
   } catch (error) {
     console.error("Error fetching trips:", error);
