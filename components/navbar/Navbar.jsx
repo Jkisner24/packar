@@ -13,11 +13,11 @@ export default function App() {
       <Navbar.Toggle aria-controls="responsive-navbar-nav"  style={{color: 'white', background: 'rgba(255, 255, 255, 0.9)'}}/>
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto" >
-          <Nav.Link href="" className={`text-light ${style['scale']}`}>Features</Nav.Link>
-          <Nav.Link href="" className={`text-light ${style['scale']}`}>Pricing</Nav.Link>
+          <Link href="/login" className={`text-light ${style['scale']} mt-2`} style={{textDecoration: 'none'}}>Iniciar Sesión</Link>
+          <Link href="register" className={`text-light ${style['scale']} mt-2`} style={{textDecoration: 'none'}}>Regístrate</Link>
         </Nav>
         <Nav>
-          <Nav.Link href="" className={`text-light ${style['scale']}`}>More deets</Nav.Link>
+          <Link href="#about-us" className={`text-light ${style['scale']} mt-2`} style={{textDecoration: 'none'}}>Sobre Nosotros</Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
