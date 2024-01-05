@@ -1,10 +1,10 @@
-import { getHandler, postHandler } from './route';
+import { GET, POST } from './route';
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
-    return getHandler(req, res);
+    return GET(req, res);
   } else if (req.method === 'POST') {
-    return postHandler(req, res);
+    return POST(req, res);
   } else {
     res.status(405).json({ message: 'Method not allowed' });
   }

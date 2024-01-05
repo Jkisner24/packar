@@ -1,15 +1,30 @@
     'use client'
-    import React, { useState } from 'react';
+    import React, { useState, useEffect } from 'react';
+    import { useSelector, useDispatch } from 'react-redux';
     import Card from 'react-bootstrap/Card';
     import ListGroup from 'react-bootstrap/ListGroup';
     import Modal from 'react-bootstrap/Modal';
-    
+    import {getUsers} from '../../store/slice'
+
     function User() {
+      const dispatch = useDispatch()
       const [showModal, setShowModal] = useState(false);
-    
+      const users = useSelector((state) => state.slice.users);
       const handleShowModal = () => setShowModal(true);
       const handleCloseModal = () => setShowModal(false);
-    
+      
+      
+      useEffect(() => {
+        dispatch(getUsers());
+      }, [dispatch]);
+      console.log(users,"USER")
+
+      if (!users || users.length === 0) {
+        return null; 
+      }
+        const { username, email } = users[0];
+      
+
       return (
         <div>
           <button onClick={handleShowModal}>Perfil del usuario</button>
@@ -28,8 +43,8 @@
                   </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                  <ListGroup.Item>Juan</ListGroup.Item>
-                  <ListGroup.Item>Juan@juan.com</ListGroup.Item>
+                  <ListGroup.Item>{username}</ListGroup.Item>
+                  <ListGroup.Item>{email}</ListGroup.Item>
                 </ListGroup>
                 <Card.Body>
                   <Card.Link href="#">Instagram</Card.Link>
