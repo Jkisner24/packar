@@ -1,10 +1,15 @@
+"use client"
 import React from "react";
 import AuthForm from "./AuthForm";
+import { useDispatch } from "react-redux";
+import { getUsers, postUser } from "@/store/slice";
 
 const Login = () => {
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
-  };
+
+  const dispatch = useDispatch()
+  const handleLoginSubmit = () => {
+    dispatch(getUsers()) 
+  }
 
   return (
     <AuthForm
@@ -18,14 +23,17 @@ const Login = () => {
       showNameInput={false}
       showForgotPassword={true}
       showLogin={false}
+      dispatchFunction={handleLoginSubmit}
     />
-  );
-};
+  )
+}
 
 const Register = () => {
-  const handleRegisterSubmit = (e) => {
-    e.preventDefault();
-  };
+ 
+  const dispatch = useDispatch()
+  const handleRegisterSubmit = () => {
+    dispatch(postUser()) 
+  }
 
   return (
     <AuthForm
@@ -39,8 +47,9 @@ const Register = () => {
       showNameInput={true}
       showForgotPassword={false}
       showLogin={true}
+      dispatchFunction={handleRegisterSubmit}
     />
-  );
-};
+  )
+}
 
-export { Login, Register };
+export { Login, Register }

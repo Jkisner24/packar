@@ -13,7 +13,8 @@ const AuthForm = ({
   question,
   showNameInput,
   showForgotPassword,
-  showLogin
+  showLogin,
+  dispatchFunction
 }) => {
 
   const router = useRouter()
@@ -27,6 +28,12 @@ const AuthForm = ({
     router.back()
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatchFunction(e);  
+    onSubmit(e);  
+  };
+
   return (
     <>
       <div className="my-3 col-12 col-md-6 text-left d-flex flex-column">
@@ -39,7 +46,7 @@ const AuthForm = ({
         </p>
       </div>
 
-      <form onSubmit={onSubmit} className="row justify-content-center">
+      <form onSubmit={handleSubmit} className="row justify-content-center">
         <div className="mb-3 col-12 col-md-6 text-left">
           {showNameInput && (
             <>

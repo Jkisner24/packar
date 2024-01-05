@@ -7,8 +7,9 @@ const initialState = {
 
 export const getUsers = createAsyncThunk('mySlice/getUsers', async () => {
   try {
-    const response = await axios.get('http://localhost:3001')
-    console.log(response.data)
+    const response = await axios.get('http://localhost:3000/api/users')
+    console.log(response.data, "SLICE")
+    return response.data
   } catch (error) {
     console.error('Error fetching users:', error);
     throw error
@@ -17,7 +18,7 @@ export const getUsers = createAsyncThunk('mySlice/getUsers', async () => {
 
 export const postUser = createAsyncThunk('mySlice/postUser', async (userData) => {
   try {
-    const response = await axios.post('http://localhost:3001', userData)
+    const response = await axios.post('http://localhost:3000/api/users', userData)
     console.log(response.data)
   } catch (error) {
     console.error('Error creating a new user:', error)
@@ -32,26 +33,19 @@ const mySlice = createSlice({
    
   },
   extraReducers: (builder) => {
-    // Añade la lógica de manejo de acciones asíncronas generadas por createAsyncThunk
     builder.addCase(getUsers.pending, (state) => {
-      // Puedes actualizar el estado durante la petición si es necesario
     });
     builder.addCase(getUsers.fulfilled, (state, action) => {
-      // Actualiza el estado con la información obtenida
-      state.value = action.payload;
+      state.users = action.payload;
     });
     builder.addCase(getUsers.rejected, (state, action) => {
-      // Maneja el error si es necesario
     });
 
     builder.addCase(postUser.pending, (state) => {
-      // Puedes actualizar el estado durante la petición si es necesario
     });
     builder.addCase(postUser.fulfilled, (state, action) => {
-      // Maneja la respuesta después de una petición POST exitosa
     });
     builder.addCase(postUser.rejected, (state, action) => {
-      // Maneja el error si es necesario
     });
   },
 });
