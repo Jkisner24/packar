@@ -45,18 +45,23 @@ export async function POST(req, res) {
       html: content,
     };
 
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.error('Error sending email:', error);
-        return NextResponse.json({ status: 'error', message: "Internal server error" });
-      } else {
-        console.log('Email sent:', info.response);
-        return NextResponse.json({ status: 'error', message: 'Internal server error' });
-    }
+    const sendMailPromise = new Promise((resolve, reject) => {
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.error('Error sending email:', error);
+          reject(error);
+        } else {
+          console.log('Email sent:', info.response);
+          resolve(info);
+        }
+      });
     });
 
-    return NextResponse.json("message send");
+    await sendMailPromise;
 
+    console.log("send");
+
+    return NextResponse.json("message send");
   } catch (error) {
     console.error('Error processing mail request:', error);
     return NextResponse.json({ message: 'Internal server error' });

@@ -26,6 +26,17 @@ export const postUser = createAsyncThunk('mySlice/postUser', async (userData) =>
   }
 });
 
+export const sendMail = createAsyncThunk('mySlice/sendMail', async (email) => {
+  try {
+    const response = await axios.post('http://localhost:3000/api/mail', { email });
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error sending email:', error);
+    throw error;
+  }
+});
+
 const mySlice = createSlice({
   name: 'mySlice',
   initialState,
@@ -49,6 +60,16 @@ const mySlice = createSlice({
     builder.addCase(postUser.rejected, (state, action) => {
       throw Error
     })
+
+    builder.addCase(sendMail.pending, (state) => {
+    });
+
+    builder.addCase(sendMail.fulfilled, (state, action) => {
+    });
+
+    builder.addCase(sendMail.rejected, (state, action) => {
+    });
+
   },
 });
 

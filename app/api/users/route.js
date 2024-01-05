@@ -14,6 +14,15 @@ export async function GET(req, res) {
 export async function POST(req, res) {
   try {
     const { username, email, password } = await req.json();
+    const existingUser = await prisma.user.findUnique({
+      where: {
+        email: email,
+      },
+    });
+    if (existingUser) {
+      return NextResponse.json({ message: 'The mail is already registered' });
+    }
+
     const newUser = await prisma.user.create({
       data: {
         username,

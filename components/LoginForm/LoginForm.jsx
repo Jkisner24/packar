@@ -1,8 +1,8 @@
 "use client"
-import React, { useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import AuthForm from "./AuthForm";
 import { useDispatch, useSelector } from "react-redux";
-import { postUser } from "@/store/slice";
+import { postUser, sendMail } from "@/store/slice";
 import { useRouter } from "next/navigation";
 
 const Login = () => {
@@ -49,9 +49,36 @@ const Login = () => {
 const Register = () => {
  
   const dispatch = useDispatch()
+  const users = useSelector((state) => state.slice.users);
+  const [name, setName] = useState(""); 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [mailSent, setMailSent] = useState(false);
+
+  const router = useReducer();
+
+  useEffect(() => {
+    if (mailSent) {
+      dispatch(sendMail(email));
+    }
+  }, [mailSent, dispatch, email]);
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
   const handleRegisterSubmit = () => {
-    dispatch(postUser()) 
-  }
+    dispatch(postUser({ username: name, email, password }));
+    dispatch(sendMail(email));
+  };
 
   return (
     <AuthForm
@@ -66,6 +93,9 @@ const Register = () => {
       showForgotPassword={false}
       showLogin={true}
       dispatchFunction={handleRegisterSubmit}
+      handleNameChange={handleNameChange} 
+      handleEmailChange={handleEmailChange}
+      handlePasswordChange={handlePasswordChange}
     />
   )
 }
