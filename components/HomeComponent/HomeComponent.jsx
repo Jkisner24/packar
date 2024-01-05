@@ -5,7 +5,7 @@ import GifComponent from './GifComponent'
 const HomeComponent = () => {
   return (
     <div className='w-100 h-auto'>
-      <Navbar />
+      <NavBar />
       <GifComponent />
     </div>
   )
