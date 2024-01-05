@@ -1,0 +1,7 @@
+.scale{
+  font-size: 15px;
+  transition: all ease-in-out .3s;
+}
+.scale:hover{
+  font-size: 18px;
+}
