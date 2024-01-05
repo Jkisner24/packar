@@ -80,7 +80,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [mailSent, setMailSent] = useState(false);
 
-  const router = useReducer();
+  const router = useRouter();
 
   useEffect(() => {
     if (mailSent) {
@@ -103,6 +103,7 @@ const Register = () => {
   const handleRegisterSubmit = () => {
     dispatch(postUser({ username: name, email, password }));
     dispatch(sendMail(email));
+    router.push("/login")
   };
 
   return (
