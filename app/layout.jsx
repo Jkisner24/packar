@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <StoreProvider>
       <html lang="en">
-       <body className={montserrat.className}>{children}</body>
+       <body className={montserrat.className}>{children}
        <script src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=places`}> </script>
        </body>
      </html>
