@@ -4,45 +4,70 @@ import AuthForm from "./AuthForm";
 import { useDispatch, useSelector } from "react-redux";
 import { postUser, sendMail } from "@/store/slice";
 import { useRouter } from "next/navigation";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
 
-  const users = useSelector((state) => state.slice.users)
+  const [approvedLogin, setApproveLogin] = useState(false)
+  const [rejectedLogin, setRejectedLogin] = useState(false)
 
+  const users = useSelector((state) => state.slice.users) || []
+  console.log("users", users)
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-
   const router = useRouter()
-  console.log("Users:", users)
+
   const handleLoginSubmit = async () => {
-    const user = users.find(user => user.email === email && user.password === password)
-    user ? router.push('/mobile-phone') : alert("Usuario inexistente")
-  }
+    const user = users.find((user) => user.email === email && user.password === password)
+
+    if (!user) {
+      setRejectedLogin(true);
+      toast.error("Correo o contraseña incorrecta.")
+    }
+
+    if (user) {
+      setApproveLogin(true)
+    }
+  };
+
+  useEffect(() => {
+    if (approvedLogin) {
+      toast.success("Iniciando sesión :)")
+      setTimeout(() => {
+        router.push("/home")
+      }, 2000)
+    }
+  }, [approvedLogin, router]);
 
   const handleEmailChange = (e) => {
-   setEmail(e.target.value)
-  }
+    setEmail(e.target.value)
+  };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value)
-  }
+  };
 
   return (
-    <AuthForm
-      onSubmit={handleLoginSubmit}
-      h3Title="Iniciar sesión"
-      h2Text="Encuentra tu mejor opción"
-      h2Span="al mejor precio."
-      buttonText="Iniciar sesión"
-      formTitle="Inicio de sesión"
-      question="¿Has olvidado la contraseña?"
-      showNameInput={false}
-      showForgotPassword={true}
-      showLogin={false}
-      dispatchFunction={handleLoginSubmit}
-      handleEmailChange={handleEmailChange}
-      handlePasswordChange={handlePasswordChange}
-    />
+    <>
+      <AuthForm
+        onSubmit={handleLoginSubmit}
+        h3Title="Iniciar sesión"
+        h2Text="Encuentra tu mejor opción"
+        h2Span="al mejor precio."
+        buttonText="Iniciar sesión"
+        formTitle="Inicio de sesión"
+        question="¿Has olvidado la contraseña?"
+        showNameInput={false}
+        showForgotPassword={true}
+        showLogin={false}
+        dispatchFunction={handleLoginSubmit}
+        handleEmailChange={handleEmailChange}
+        handlePasswordChange={handlePasswordChange}
+      />
+
+      {approvedLogin && <Toaster position="top-center" reverseOrder={false} />}
+      {rejectedLogin && <Toaster position="top-center" reverseOrder={false} />}
+    </>
   )
 }
 
