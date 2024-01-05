@@ -1,11 +1,12 @@
-import { getUserHandler, postUserHandler } from './route';
+import { NextResponse } from 'next/server';
+import { GET, POST } from './route';
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
-    return getUserHandler(req, res);
+    return GET(req, res);
   } else if (req.method === 'POST') {
-    return postUserHandler(req, res);
+    return POST(req, res);
   } else {
-    res.status(405).json({ message: 'Method not allowed' });
+    return NextResponse.json({ message: 'Method not allowed' });
   }
 }

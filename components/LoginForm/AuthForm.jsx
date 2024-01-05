@@ -4,7 +4,6 @@ import { LeftArrow, GoogleLogo } from "@/public/assets"
 import { useRouter } from "next/navigation"
 
 const AuthForm = ({
-  onSubmit,
   h3Title,
   h2Text,
   h2Span,
@@ -14,7 +13,10 @@ const AuthForm = ({
   showNameInput,
   showForgotPassword,
   showLogin,
-  dispatchFunction
+  dispatchFunction,
+  handleEmailChange, 
+  handlePasswordChange, 
+  handleNameChange
 }) => {
 
   const router = useRouter()
@@ -31,7 +33,6 @@ const AuthForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatchFunction(e);  
-    onSubmit(e);  
   };
 
   return (
@@ -54,6 +55,7 @@ const AuthForm = ({
                 Nombre
               </label>
               <input
+                onChange={handleNameChange} 
                 type="text"
                 className="form-control"
                 id="name"
@@ -66,6 +68,7 @@ const AuthForm = ({
             Email
           </label>
           <input
+            onChange={handleEmailChange} 
             type="email"
             className="form-control"
             id="exampleInputEmail1"
@@ -78,6 +81,7 @@ const AuthForm = ({
             Contraseña
           </label>
           <input
+            onChange={handlePasswordChange}
             type="password"
             className="form-control"
             id="exampleInputPassword1"
