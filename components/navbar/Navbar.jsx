@@ -10,7 +10,7 @@ export default function App() {
       <Navbar.Brand>
         <Link href='/home' className="text-white" style={{textDecoration: 'none'}}>PACKAR</Link>
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" color="light" style={{color: 'white', background: 'white'}}/>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav"  style={{color: 'white', background: 'rgba(255, 255, 255, 0.9)'}}/>
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto" >
           <Nav.Link href="" className={`text-light ${style['scale']}`}>Features</Nav.Link>
