@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../Navbar/Navbar'
+import Navbar from '../NavBar/Navbar'
 import GifComponent from './GifComponent'
 
 const HomeComponent = () => {

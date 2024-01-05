@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import HomeComponent from '@/components/HomeComponent/HomeComponent'
-import Navbar from '@/components/Navbar/Navbar'
+import Navbar from '@/components/NavBar/Navbar'
 
 const page = () => {
   return (
