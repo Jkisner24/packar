@@ -22,7 +22,6 @@
     "react-bootstrap": "^2.9.2",
     "nodemailer": "^6.9.8",
     "react": "^18",
-    "react-bootstrap": "^2.9.2",
     "react-dom": "^18",
     "react-places-autocomplete": "^7.3.0",
     "react-redux": "^9.0.4",
