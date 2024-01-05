@@ -11,21 +11,24 @@ datasource db {
 }
 
 model User {
-  id       Int      @id @default(autoincrement())
-  username String
-  email    String   @unique
-  password String
-  trips    Trip[]   @relation("UserTrips")
+  id           Int      @id @default(autoincrement())
+  username     String
+  email        String   @unique
+  password     String
+  createdTrips Trip[]   @relation("CreatedBy")
+  takenTrips   Trip[]   @relation("TakenBy")
 }
 
 model Trip {
-  id          Int      @id @default(autoincrement())
-  title       String
-  description String
-  status      String
-  origin      String?
-  destination String?
-  createdBy   User     @relation("UserTrips", fields: [createdById], references: [id])
-  createdById Int
+  id           Int      @id @default(autoincrement())
+  title        String
+  description  String
+  status       String
+  origin       String?
+  destination  String?
+  travelDate   DateTime?   
+  createdBy    User     @relation("CreatedBy", fields: [createdById], references: [id])
+  takenBy      User?    @relation("TakenBy", fields: [takenById], references: [id])
+  createdById  Int
+  takenById    Int?
 }
-
