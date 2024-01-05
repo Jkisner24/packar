@@ -14,9 +14,10 @@ export default function App() {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto" >
           <Link href="/login" className={`text-light ${style['scale']} mt-2`} style={{textDecoration: 'none'}}>Iniciar Sesión</Link>
-          <Link href="register" className={`text-light ${style['scale']} mt-2`} style={{textDecoration: 'none'}}>Regístrate</Link>
+          <Link href="/register" className={`text-light ${style['scale']} mt-2`} style={{textDecoration: 'none'}}>Regístrate</Link>
         </Nav>
         <Nav>
+        <Link href="#linkedFeatures" className={`text-light ${style['scale']} mt-2`} style={{textDecoration: 'none'}}>Sobre Nosotros</Link>
           <Link href="#about-us" className={`text-light ${style['scale']} mt-2`} style={{textDecoration: 'none'}}>Sobre Nosotros</Link>
         </Nav>
       </Navbar.Collapse>
