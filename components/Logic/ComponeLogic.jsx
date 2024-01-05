@@ -31,25 +31,34 @@ const EnvioForm = () => {
     },
     onSubmit: async (values) => {
       try {
-        // codigo para prisma
-        const newTrip = await prisma.trip.create({
-          data: {
+        const response = await fetch('http://localhost:3000/api/trips', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
             title: values.producto,
             description: `Viaje desde ${values.desde} hasta ${values.hasta} el ${values.fecha}`,
             status: 'Programado',
             origin: values.desde,
             destination: values.hasta,
             createdBy: {
-              connect: { id: userId },
+              id: 1,
             },
-          },
+          }),
         });
-
-        console.log('Viaje creado:', newTrip);
+    
+        if (response.ok) {
+          const newTrip = await response.json();
+          console.log('Viaje creado:', newTrip);
+        } else {
+          console.error('Error al crear el viaje:', response.status);
+        }
       } catch (error) {
         console.error('Error al crear el viaje:', error);
       }
     },
+
   });
 
   const onLoad = useCallback((map) => {
