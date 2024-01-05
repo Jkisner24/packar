@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import GifComponent from './GifComponent'
 import Features from './Features'
+import AboutUs from './AboutUs'
 
 const HomeComponent = () => {
   return (
@@ -9,6 +10,7 @@ const HomeComponent = () => {
       <Navbar />
       <GifComponent />
       <Features />
+      <AboutUs />
     </div>
   )
 }
