@@ -90,7 +90,10 @@ const EnvioForm = () => {
   return (
     <div className="fw-bold fs-6 " style={{ color: 'var(--accent-color)' }}>
   <div className="relative h-screen flex items-center justify-center">
-    <Image src={home} alt="Fondo de pantalla" className="w-full max-w-md h-auto" width={750} />
+    <div className='text-center text-white' style={{zIndex: '1'}}>
+      <Image style={{position: 'relative', width: '100%', height: '400px'}} src={home} alt="Fondo de pantalla" />
+    </div>
+    
     <div className="container my-5 border border-black p-4 rounded-md text-center shadow" style={{ maxWidth: '800px', borderRadius: '10px' }}>
       <div className="mt-2 col-12">
         <div style={{ cursor: 'pointer' }}>
