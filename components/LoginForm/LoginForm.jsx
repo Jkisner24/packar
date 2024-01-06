@@ -2,7 +2,7 @@
 import React, { useEffect, useReducer, useState } from "react";
 import AuthForm from "./AuthForm";
 import { useDispatch, useSelector } from "react-redux";
-import { postUser, sendMail } from "@/store/slice";
+import { getUsers, postUser, sendMail } from "@/store/slice";
 import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -16,6 +16,7 @@ const Login = () => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   const router = useRouter()
+  const dispatch = useDispatch()
 
   const handleLoginSubmit = async () => {
     const user = users.find((user) => user.email === email && user.password === password)
@@ -31,13 +32,14 @@ const Login = () => {
   };
 
   useEffect(() => {
+    dispatch(getUsers())
     if (approvedLogin) {
       toast.success("Iniciando sesión :)")
       setTimeout(() => {
         router.push("/home")
       }, 2000)
     }
-  }, [approvedLogin, router]);
+  }, [dispatch, approvedLogin, router]);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value)
