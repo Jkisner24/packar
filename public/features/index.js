@@ -1,0 +1,6 @@
+export {default as Feature1} from './feature1.svg'
+export {default as Feature2} from './feature2.svg'
+export {default as Feature3} from './feature3.svg'
+export {default as Feature4} from './feature4.svg'
+export {default as Feature5} from './feature5.svg'
+export {default as Feature6} from './feature6.svg'
