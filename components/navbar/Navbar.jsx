@@ -17,7 +17,7 @@ export default function App() {
           <Link href="/register" className={`text-light ${style['scale']} mt-2`} style={{textDecoration: 'none'}}>Regístrate</Link>
         </Nav>
         <Nav>
-        <Link href="#linkedFeatures" className={`text-light ${style['scale']} mt-2`} style={{textDecoration: 'none'}}>Sobre Nosotros</Link>
+        <Link href="#linkedFeatures" className={`text-light ${style['scale']} mt-2`} style={{textDecoration: 'none'}}>¿De qué nos encargamos?</Link>
           <Link href="#about-us" className={`text-light ${style['scale']} mt-2`} style={{textDecoration: 'none'}}>Sobre Nosotros</Link>
         </Nav>
       </Navbar.Collapse>
