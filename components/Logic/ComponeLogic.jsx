@@ -53,7 +53,7 @@ const EnvioForm = () => {
     
         if (response.ok) {
           handleCloseModal();
-          Router.push('/home');
+          router.push('/home');
         } else {
           console.error('Error al crear el viaje:', response.status);
         }
