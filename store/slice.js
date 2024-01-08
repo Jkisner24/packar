@@ -18,7 +18,6 @@ export const getUsers = createAsyncThunk('mySlice/getUsers', async () => {
 export const postUser = createAsyncThunk('mySlice/postUser', async (userData) => {
   try {
     const response = await axios.post('https://packartest.vercel.app/api/users', userData)
-    console.log(response.data)
     return response.data
   } catch (error) {
     console.error('Error creating a new user:', error)
@@ -29,7 +28,6 @@ export const postUser = createAsyncThunk('mySlice/postUser', async (userData) =>
 export const sendMail = createAsyncThunk('mySlice/sendMail', async (email) => {
   try {
     const response = await axios.post('https://packartest.vercel.app/api/mail', { email });
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error('Error sending email:', error);
