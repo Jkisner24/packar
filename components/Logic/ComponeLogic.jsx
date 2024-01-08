@@ -49,8 +49,7 @@ const EnvioForm = () => {
         });
     
         if (response.ok) {
-          const newTrip = await response.json();
-          console.log('Viaje creado:', newTrip);
+          handleCloseModal();
         } else {
           console.error('Error al crear el viaje:', response.status);
         }
@@ -80,9 +79,7 @@ const EnvioForm = () => {
     handleShowModal();
     if (map !== null) {
       setMap(null);
-      setTimeout(() => {
-        setMap(map);
-      }, 100);
+      setTimeout(() => setMap(map), 100);
     }
   };
   const randomProducts = generateRandomProducts();
