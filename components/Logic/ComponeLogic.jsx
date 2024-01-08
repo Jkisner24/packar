@@ -5,7 +5,6 @@ import { Modal, Button, Form } from 'react-bootstrap';
 import { Autocomplete, GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { home } from '@/public/assets';
-import { useRouter } from 'next/router';
 
 const generateRandomProducts = () => {
   const products = [];
@@ -19,8 +18,6 @@ const EnvioForm = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [map, setMap] = useState(null);
-  const router = useRouter(); 
-
 
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
@@ -50,9 +47,10 @@ const EnvioForm = () => {
             },
           }),
         });
+    
         if (response.ok) {
-          handleCloseModal();
-          router.push('/home');
+          const newTrip = await response.json();
+          console.log('Viaje creado:', newTrip);
         } else {
           console.error('Error al crear el viaje:', response.status);
         }
@@ -82,7 +80,9 @@ const EnvioForm = () => {
     handleShowModal();
     if (map !== null) {
       setMap(null);
-      setTimeout(() => setMap(map), 100);
+      setTimeout(() => {
+        setMap(map);
+      }, 100);
     }
   };
   const randomProducts = generateRandomProducts();
