@@ -17,7 +17,7 @@ export const getUsers = createAsyncThunk('mySlice/getUsers', async () => {
 
 export const postUser = createAsyncThunk('mySlice/postUser', async (userData) => {
   try {
-    const response = await axios.post('https://packartest.vercel.app/users', userData)
+    const response = await axios.post('https://packartest.vercel.app/api/users', userData)
     console.log(response.data)
     return response.data
   } catch (error) {
