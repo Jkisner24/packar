@@ -4,7 +4,7 @@ import React from "react"
 import { Nav, Navbar } from "react-bootstrap"
 import style from './Navbar.module.css'
 
-export default function App() {
+const NavBar = () => {
   return (
     <Navbar collapseOnSelect expand="col" style={{background: 'var(--primary-color)'}} className="px-4">
       <Navbar.Brand>
@@ -24,3 +24,4 @@ export default function App() {
     </Navbar>
   );
 }
+export default NavBar
