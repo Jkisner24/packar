@@ -31,7 +31,7 @@ const EnvioForm = () => {
     },
     onSubmit: async (values) => {
       try {
-        const response = await fetch('http://localhost:3000/api/trips', {
+        const response = await fetch('https://packartest.vercel.app/api/trips', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

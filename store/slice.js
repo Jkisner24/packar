@@ -7,7 +7,7 @@ const initialState = {
 
 export const getUsers = createAsyncThunk('mySlice/getUsers', async () => {
   try {
-    const response = await axios.get('http://localhost:3000/api/users')
+    const response = await axios.get('https://packartest.vercel.app/api/users')
     return response.data
   } catch (error) {
     console.error('Error fetching users:', error);
@@ -17,7 +17,7 @@ export const getUsers = createAsyncThunk('mySlice/getUsers', async () => {
 
 export const postUser = createAsyncThunk('mySlice/postUser', async (userData) => {
   try {
-    const response = await axios.post('http://localhost:3000/api/users', userData)
+    const response = await axios.post('https://packartest.vercel.app/users', userData)
     console.log(response.data)
     return response.data
   } catch (error) {
@@ -28,7 +28,7 @@ export const postUser = createAsyncThunk('mySlice/postUser', async (userData) =>
 
 export const sendMail = createAsyncThunk('mySlice/sendMail', async (email) => {
   try {
-    const response = await axios.post('http://localhost:3000/api/mail', { email });
+    const response = await axios.post('https://packartest.vercel.app/api/mail', { email });
     console.log(response.data);
     return response.data;
   } catch (error) {
