@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../NavBar/Navbar'
+import NavBar from '../NavBar/Navbar'
 import GifComponent from './GifComponent'
 import Features from './Features'
 import AboutUs from './AboutUs'
@@ -7,7 +7,7 @@ import Footer from '../footer/Footer'
 const HomeComponent = () => {
   return (
     <div className='w-100 h-auto'>
-      <Navbar />
+      <NavBar />
       <GifComponent />
       <Features />
       <AboutUs />
