@@ -1,3 +1,4 @@
+
 import { Montserrat } from 'next/font/google'
 import 'bootstrap/dist/css/bootstrap.css'
 import './globals.css'
@@ -15,9 +16,15 @@ export default function RootLayout({ children }) {
   return (
     <StoreProvider>
       <html lang="en">
+        <head>
+        <Script
+            src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_API_KEY}&libraries=places`}
+            strategy="beforeInteractive"
+        />
+        </head>
         <body className={montserrat.className}>{children}</body>
-        <Script id='maps' src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=places`}></Script>
-     </html>
+      </html>
+
     </StoreProvider>
   );
 }

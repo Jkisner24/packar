@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prisma:generate": "prisma generate",
-    "build": "next build"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.7.1",
@@ -15,11 +15,14 @@
     "@reduxjs/toolkit": "^2.0.1",
     "axios": "^1.6.3",
     "bootstrap": "^5.3.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "formik": "^2.4.5",
     "mdb-react-ui-kit": "^7.0.0",
     "next": "14.0.4",
     "next-redux-wrapper": "^8.1.0",
+    "next-scripts": "^0.3.4",
+    "nextjs-cors": "^2.2.0",
     "node": ">=16.0.0",
     "nodemailer": "^6.9.8",
     "react": "^18",
