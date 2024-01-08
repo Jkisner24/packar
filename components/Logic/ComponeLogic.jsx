@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import { Modal, Button, Form } from 'react-bootstrap';
@@ -50,12 +50,6 @@ const EnvioForm = () => {
             },
           }),
         });
-        useEffect(() => {
-          if (router.asPath === '/home') {
-            router.push('/home');
-          }
-        }, [router]);
-      
         if (response.ok) {
           handleCloseModal();
           router.push('/home');
