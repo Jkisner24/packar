@@ -50,7 +50,12 @@ const EnvioForm = () => {
             },
           }),
         });
-    
+        useEffect(() => {
+          if (router.asPath === '/home') {
+            router.push('/home');
+          }
+        }, [router]);
+      
         if (response.ok) {
           handleCloseModal();
           router.push('/home');
