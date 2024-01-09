@@ -5,6 +5,8 @@ import { Modal, Button, Form } from 'react-bootstrap';
 import { Autocomplete, GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { home } from '@/public/assets';
+import { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const generateRandomProducts = () => {
   const products = [];
@@ -51,8 +53,11 @@ const EnvioForm = () => {
         if (response.ok) {
           const newTrip = await response.json();
           console.log('Viaje creado:', newTrip);
+          handleCloseModal();
+          toast.success("Viaje creado exitosamente")
         } else {
           console.error('Error al crear el viaje:', response.status);
+          toast.error("Hubo un error al crear el viaje.")
         }
       } catch (error) {
         console.error('Error al crear el viaje:', error);
@@ -88,6 +93,8 @@ const EnvioForm = () => {
   const randomProducts = generateRandomProducts();
 
   return (
+    <>
+    <Toaster position="top-center" reverseOrder={false} />
     <div className="fw-bold fs-6 " style={{ color: 'var(--accent-color)' }}>
   <div className="relative h-screen flex items-center justify-center">
     <div className='text-center text-white' style={{zIndex: '1'}}>
@@ -238,7 +245,9 @@ const EnvioForm = () => {
         </Modal>
       </div>
     </div>
+    </>
   );
+  
 };
 
 export { EnvioForm };
