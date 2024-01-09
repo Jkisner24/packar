@@ -17,7 +17,6 @@
       useEffect(() => {
         dispatch(getUsers());
       }, [dispatch]);
-      console.log(users,"USER")
 
       if (!users || users.length === 0) {
         return null; 

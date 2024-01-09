@@ -12,7 +12,6 @@ const Login = () => {
   const [rejectedLogin, setRejectedLogin] = useState(false)
 
   const users = useSelector((state) => state.slice.users) || []
-  console.log("users", users)
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   const router = useRouter()
