@@ -96,12 +96,9 @@ const EnvioForm = () => {
     <>
     <Toaster position="top-center" reverseOrder={false} />
     <div className="fw-bold fs-6 " style={{ color: 'var(--accent-color)' }}>
-  <div className="relative h-screen flex items-center justify-center">
-    <div className='text-center text-white' style={{zIndex: '1'}}>
-      <Image style={{position: 'relative', width: '100%', height: '400px'}} src={home} alt="Fondo de pantalla" />
-    </div>
+  <div className="d-flex h-screen flex items-center justify-evenly">
     
-    <div className="container my-5 border border-black p-4 rounded-md text-center shadow" style={{ maxWidth: '800px', borderRadius: '10px' }}>
+    <div className="container my-5 border border-light rounded-md text-center shadow-sm p-3 mb-5 bg-body rounded" style={{ maxWidth: '800px', borderRadius: '10px' }}>
       <div className="mt-2 col-12">
         <div style={{ cursor: 'pointer' }}>
           <span className="my-10 text-black text-3xl font-bold">
@@ -233,6 +230,10 @@ const EnvioForm = () => {
             </div>
           </div>
         </div>
+        <div className='text-white pt-5'>
+      <Image className='' style={{width: '100%', height: '20rem', marginLeft: '5rem'}} src={home} alt="Fondo de pantalla" />
+    </div>
+
 
        
         <Modal show={showModal} onHide={handleCloseModal} onEntered={handleOpenModal}>
